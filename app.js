@@ -32,6 +32,7 @@ app.use(bodyParser.urlencoded({
     });
 });
 
+
 app.delete('/deleteuser', function (req, res) {
     var id=req.body;
     console.log(id);
