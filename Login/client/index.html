@@ -1,0 +1,15 @@
+<div ng-controller="SignUpController as signupCtrl">
+    <form ng-submit="signupCtrl.register()">
+        <input type="email" placeholder="Username" ng-model="signupCtrl.user.email" name="email" required />
+        <input type="password" placeholder="Password" ng-model="signupCtrl.user.password" name="password" required />
+        <button type="submit">Sign Up</button>
+    </form>
+</div>
+<div ng-controller="LoginController as loginCtrl">
+    <form ng-submit="loginCtrl.login()">
+        <input type="email" placeholder="Username" ng-model="loginCtrl.user.email" name="email" required />
+        <input type="password" placeholder="Password" ng-model="loginCtrl.user.password" name="password" required />
+        <button type="submit">Login</button>
+    </form>
+</div>
+<h3><a href="secret">secret</a></h3>
