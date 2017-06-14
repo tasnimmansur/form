@@ -5,10 +5,9 @@ var morgan      = require('morgan');
 var mongoose    = require('mongoose');
 var apiRoutes   = express.Router();
 
-var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
+//var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
 var config = require('./config');
 var User   = require('./app/models/user');
-
 
 var port = process.env.PORT || 8098;
 mongoose.connect(config.database);
@@ -24,7 +23,6 @@ app.get('/', function(req, res) {
 });
 
 app.get('/setup', function(req, res) {
-
     // create a sample user
     var lanet = new User({
         name: 'Lanetteam',
@@ -33,7 +31,7 @@ app.get('/setup', function(req, res) {
     });
 
     // save the sample user
-    lanet.save(function(err) {
+    lanet.save(function(err){
         if (err) throw err;
 
         console.log('User saved successfully');
@@ -63,17 +61,18 @@ apiRoutes.post('/authenticate', function(req, res) {// Check the User
             if (user.password != req.body.password) {
                 res.json({ success: false, message: 'Authentication failed. Wrong password.'});
             } else {
+                res.json({success:false, message:'Successfull'});
                 // if user is found and password is right
                 // create a token
-                var token = jwt.sign(user, app.get('superSecret'));
+               // var token = jwt.sign(user, app.get('superSecret'));
                     //expiresInMinutes: 1440 // expires in 24 hours
                 //});
                 // return the information including token as JSON
-                res.json({
+                /*res.json({
                     success: true,
                     message: 'Token!',
                     token: token
-                });
+                });*/
             }
 
         }
